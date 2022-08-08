@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for('static',filename='images/icons/favicon.ico') }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animate/animate.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css') }}">
+<!--===============================================================================================-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script type="text/javascript">
+    function ShowHideHighSchool() {
+
+       var a = document.getElementById("education");
+        var b1 = document.getElementById("sslc");
+		var b2 = document.getElementById("puc");
+		var b3 = document.getElementById("ug");
+	
+        b1.style.display = a.value == "1" ? "block" : "none";
+		b2.style.display = a.value == "2" ? "block" : "none";
+		b3.style.display = a.value == "3" ? "block" : "none";
+		
+
+		
+    }
+		</script>
+		<script>
+
+$(document).ready(function(){
+    $('#sslcm').on('change', function() {
+      if ( this.value == '1')
+      //.....................^.......
+      {
+        $("#sslca").show();$("#sslcb").hide();$("#sslcc").hide();$("#sslcd").hide();$("#sslce").hide();$("#sslcf").hide();
+
+      }
+	   else  if ( this.value == '2')
+      //.....................^.......
+      {
+        $("#sslca").hide();$("#sslcb").show();$("#sslcc").hide();$("#sslcd").hide();$("#sslce").hide();$("#sslcf").hide();
+
+      }
+	   else if ( this.value == '3')
+      //.....................^.......
+      {
+      
+		 $("#sslca").hide();$("#sslcb").hide();$("#sslcc").show();$("#sslcd").hide();$("#sslce").hide();$("#sslcf").hide();
+      }
+	  	   else if ( this.value == '4')
+      //.....................^.......
+      {
+       
+		 $("#sslca").hide();$("#sslcb").hide();$("#sslcc").hide();$("#sslcd").show();$("#sslce").hide();$("#sslcf").hide();
+      }
+	  	   else if ( this.value == '5')
+      //.....................^.......
+      {
+       
+		 $("#sslca").hide();$("#sslcb").hide();$("#sslcc").hide();$("#sslcd").hide();$("#sslce").show();$("#sslcf").hide();
+      }
+	  	   else if ( this.value == '6')
+      //.....................^.......
+      {
+        
+		 $("#sslca").hide();$("#sslcb").hide();$("#sslcc").hide();$("#sslcd").hide();$("#sslce").hide();$("#sslcf").show();
+      }
+      else
+      {
+        $("#sslca").hide();$("#sslcb").hide();$("#sslcc").hide();$("#sslcd").hide();$("#sslce").hide();$("#sslcf").hide();
+	 
+      }
+    });
+});
+</script>
+		
+		
+	
+	<script>
+
+$(document).ready(function(){
+    $('#pucc').on('change', function() {
+      if ( this.value == '11')
+      //.....................^.......
+      {
+        $("#ab").show();
+		  $("#ac").hide();
+		
+		$("#ad").hide();
+      }
+	   else  if ( this.value == '12')
+      //.....................^.......
+      {
+        $("#ac").show();
+		 
+		$("#ab").hide();
+		$("#ad").hide();
+      }
+	   else if ( this.value == '13')
+      //.....................^.......
+      {
+        $("#ad").show();
+		  $("#ac").hide();
+		$("#ab").hide();
+		
+      }
+      else
+      {
+        $("#ac").hide();
+		$("#ab").hide();
+		$("#ad").hide();
+      }
+    });
+});
+</script>
+</head>
+<body background="{{url_for('static',filename = 'images/a.jpg')}}">
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" method="POST" action="eduresult">
+				<span class="contact100-form-title">
+					Welcome
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Your Name</span>
+					<input class="input100" type="text" name="name" placeholder="Enter your name">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate="Age is required">
+					<span class="label-input100">Your Age</span>
+					<input class="input100" type="number" name="age" placeholder="Enter your Age">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 input100-select">
+					<span class="label-input100">Level of Education Completed</span>
+					<div>
+						<select class="selection-2" name="education" id = "education" onchange = "ShowHideHighSchool()">
+							<option value="1">High School</option>
+							<option value="2">Pre University</option>
+							<option value="3">UG</option>
+						</select>
+					</div>
+					<span class="focus-input100"></span>
+				</div>  
+				<div class="wrap-input100 input100-select" id="sslc" style="display: none">
+						<span class="label-input100">Intrested stream</span>
+						<div>
+							<select class="selection-2" name="sslc" id="sslcm">
+								<option value="1">Science</option>
+								<option value="2">Commerce</option>
+								<option value="3">Arts</option>	
+								<option value="4">Diploma</option>
+								<option value="5">Diploma in Arts</option>
+								<option value="6">Diploma in Commerce</option>
+								<option value="7">Diploma in Science</option>
+								<option value="8">Polytechnic Courses</option>
+								<option value="9">Paramedical Courses </option>
+								<option value="10">Paramedical certification courses </option>
+								<option value="11">IT and Computer Technology </option>
+								<option value="12">ITI Courses </option>
+								<option value="13">Vocational Courses </option>
+
+							</select>
+						</div>
+						<span class="focus-input100"></span>
+				</div>
+
+				
+				<div class="wrap-input100 input100-select" id="puc" style="display: none" >
+						<span class="label-input100">completed stream or current stream</span>
+						<div>
+							<select class="selection-2" name="puc" id="pucc"  >
+								<option value="1">Engineering</option>
+								<option value="2">Bachelor of Science</option>
+								<option value="3">Medical</option>	
+								<option value="4">Design</option>	
+<option value="5">Agriculture</option>	
+<option value="6">Animation</option>	
+<option value="7">Architecture</option>	
+<option value="8">Aviation</option>	
+<option value="9">Computer Applications</option>	
+<option value="10">Dental</option>
+<option value="11">Hotel management</option>
+<option value="12">Laws</option>
+<option value="13">Mass Communication</option>
+<option value="14">Paramedical</option>
+<option value="15">Pharmacy</option>
+<option value="16">Veterinary Science</option>
+<option value="17">Arts</option>
+<option value="18">Commerce courses</option>
+<option value="19">Education Courses</option>
+<option value="20">Management courses</option>
+	
+							</select>
+						</div>
+						<span class="focus-input100"></span>
+				</div>
+				
+				
+				
+				
+				<div class="wrap-input100 input100-select" id="ug" style="display: none">
+						<span class="label-input100">intrested fields</span>
+						<div>
+							<select class="selection-2" name="ug" >
+								<option value="1">AGRICULTURE</option>
+								<option value="2">ANIMATION</option>
+								<option value="3">ARCHITECTURE</option>	
+								<option value="4">Arts</option>
+								<option value="5">AVIATION</option>
+								<option value="6">COMMERCE</option>
+								<option value="7">COMPUTER APPLICATIONS</option>
+								<option value="8">DENTAL</option>
+								<option value="9">DESIGN</option>
+								<option value="10">EDUCATION</option>
+								<option value="11">HOTEL MANAGEMENT</option>
+								<option value="12">LAW</option>
+								<option value="13">ENGINEERING</option>
+								<option value="14">MASS COMMUNICATION</option>
+								<option value="15">MEDICAL</option>
+								<option value="16">PARAMEDICAL COURSES</option>
+								<option value="17">PHARMACY</option>
+								<option value="18">SCIENCE</option>
+								<option value="19">VETERINARY</option>
+								
+
+							</select>
+						</div>
+						<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" data-validate="Field is required">
+					<span class="label-input100">Enter your intrested field</span>
+					<input class="input100" type="text" name="field" placeholder="Enter your Field">
+					<span class="focus-input100"></span>
+				</div>	
+				
+				<div class="wrap-input100 validate-input" data-validate="Grade is required">
+					<span class="label-input100">Enter your Grade which you got in completed course</span>
+					<input class="input100" type="number" name="grade" placeholder="Enter your Grade">
+					<span class="focus-input100"></span>
+				</div>			
+				<div class="wrap-input100 input100-select" id="skill">
+						<span class="label-input100">Major Skills</span>
+						<div>
+							<select class="selection-2" name="skill" >
+								<option value="1">Communication</option>
+								<option value="2">analytical skills</option>
+								<option value="3">problem solver</option>	
+								<option value="4">general knowledge</option>
+								<option value="5">management</option>
+
+							</select>
+						</div>
+						<span class="focus-input100"></span>
+				</div>
+				
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn" type="submit">
+							<span>
+								Submit
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/select2/select2.min.js') }}"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+
+
+    
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/daterangepicker/moment.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
